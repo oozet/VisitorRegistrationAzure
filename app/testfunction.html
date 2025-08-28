@@ -11,14 +11,12 @@
 
     <script>
       fetch("/api/HttpTrigger1")
-        .then((res) => res.json())
-        .then((data) => {
-          document.getElementById("apiMessage").textContent = data.message;
+        .then(async (res) => {
+          const text = await res.text();
+          console.log("Raw response:", text);
+          return JSON.parse(text); // will still fail if it's not JSON
         })
-        .catch((err) => {
-          console.error("Error calling API:", err);
-          document.getElementById("apiMessage").textContent = "Error fetching API";
-        });
+        .catch(console.error);
     </script>
   </body>
 </html>
