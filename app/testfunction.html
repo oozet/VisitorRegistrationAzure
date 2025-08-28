@@ -10,7 +10,7 @@
     <p>API says: <span id="apiMessage">Loading...</span></p>
 
     <script>
-      fetch("/api/TestFunction")
+      fetch("/api/HttpTrigger1")
         .then((res) => res.json())
         .then((data) => {
           document.getElementById("apiMessage").textContent = data.message;
