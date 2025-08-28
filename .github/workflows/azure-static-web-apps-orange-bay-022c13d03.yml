@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           submodules: true
           lfs: false
@@ -23,7 +23,7 @@ jobs:
       - name: Detect API changes
         id: changes
         run: |
-          if git diff --quiet HEAD^ HEAD ./api; then
+          if git diff --quiet ${{ github.event.before }} ${{ github.sha }} ./api; then
             echo "api_changed=false" >> $GITHUB_ENV
           else
             echo "api_changed=true" >> $GITHUB_ENV
