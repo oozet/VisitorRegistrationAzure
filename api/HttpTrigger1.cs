@@ -17,7 +17,7 @@ public class HttpTrigger1
     [Function("HttpTrigger1")]
     public IActionResult Run([HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequest req)
     {
-        _logger.LogDebug("Testing Insight Logging.");
+        _logger.LogInformation("Testing Insight Logging.");
         return new OkObjectResult(new { message = "Function call succeeded." });
     }
 }
