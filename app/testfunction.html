@@ -11,10 +11,9 @@
 
     <script>
       fetch("/api/HttpTrigger1")
-        .then(async (res) => {
-          const text = await res.text();
-          console.log("Raw response:", text);
-          return JSON.parse(text); // will still fail if it's not JSON
+        .then((res) => res.json())
+        .then((data) => {
+          document.getElementById("apiMessage").textContent = data.message;
         })
         .catch(console.error);
     </script>
