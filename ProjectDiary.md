@@ -1,0 +1,3 @@
+I have learned about cold starts. Every redeploy causes api calls to take a long time. So for production sites a premium plan would be better.
+Learned about workflows and actions. Skip building app because it's not required. Hopefully removed building of api if no changes are made there.
+Working on figuring out logging and KQL Kusto Query Language. Still not sure how to show LogInformation in traces.
