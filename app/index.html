@@ -5,5 +5,35 @@
   <body>
     <h1>Hello World!</h1>
     <a href="testfunction.html">Test TestFunction</a>
+
+    <form id="registrationForm">
+      <p><label for="firstname">Förnamn: </label><input name="firstname" /></p>
+      <p><label for="lastname">Efternamn: </label><input name="lastname" /></p>
+      <p><label for="email">E-Post: </label><input name="email" type="email" /></p>
+      <p><button type="submit">Registrera</button></p>
+    </form>
+
+    <p id="apiRegisterResponse"></p>
+
+    <script>
+      const formElement = document.getElementById("registrationForm");
+      formElement.addEventListener("submit", function (event) {
+        event.preventDefault;
+        const data = Object.fromEntries(new FormData(formElement));
+
+        fetch("/api/RegisterVisitor", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        })
+          .then((res) => res.json())
+          .then((resData) => {
+            document.getElementById("apiMessage").textContent = resData;
+          })
+          .catch(console.error);
+      });
+    </script>
   </body>
 </html>
