@@ -1,0 +1,41 @@
+main {
+  font-family: Calibri, "Gill Sans", "Gill Sans MT", "Trebuchet MS", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.form-container {
+  background-color: rgb(180, 213, 189);
+  padding: 30px;
+  border-radius: 10px;
+  width: 50rem;
+  box-shadow: 0 2px 5px rgb(133, 121, 121);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  text-align: left;
+}
+
+h2 {
+  text-align: center;
+}
+
+input {
+  border-radius: 0px;
+  padding: 10px;
+  margin-bottom: 16px;
+}
+
+button {
+  align-self: center;
+  padding: 8px;
+  border-radius: 0px;
+  width: 10rem;
+}

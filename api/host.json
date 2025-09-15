@@ -1,15 +1,17 @@
 {
     "version": "2.0",
     "logging": {
+        "logLevels": {
+            "default": "Information"
+        },
         "applicationInsights": {
             "samplingSettings": {
                 "isEnabled": true,
-                "excludedTypes": "Request"
+                "maxTelemetryItemsPerSecond" : 5,
+                "excludedTypes": "Dependency;Event",
+                "includedTypes" : "PageView;Trace"
             },
             "enableLiveMetricsFilters": true
-        },
-        "logLevels": {
-            "default": "Warning"
         }
     }
 }

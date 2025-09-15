@@ -1,0 +1,18 @@
+meta {
+  name: RegisterTest
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:7071/api/RegisterVisitor
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "id" : "1984",
+    "name" : "test"
+  }
+}

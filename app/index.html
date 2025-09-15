@@ -3,27 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <title>Visitor Registration Form</title>
+    <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <h1>Hello World!</h1>
-    <a href="testfunction.html">Test TestFunction</a>
+    <main>
+      <div class="form-container">
+        <h2>Registration Form</h2>
+        <form id="registration-form">
+          <label for="firstname">Förnamn: </label>
+          <input name="firstname" maxlength="100" />
+          <label for="lastname">Efternamn: </label>
+          <input name="lastname" maxlength="100" />
+          <label for="email">E-Post: </label>
+          <input name="email" type="email" maxlength="256" />
+          <button type="submit">Registrera</button>
+        </form>
+      </div>
 
-    <form id="registrationForm">
-      <p><label for="firstname">Förnamn: </label><input name="firstname" /></p>
-      <p><label for="lastname">Efternamn: </label><input name="lastname" /></p>
-      <p><label for="email">E-Post: </label><input name="email" type="email" /></p>
-      <p><button type="submit">Registrera</button></p>
-    </form>
-
-    <p id="apiRegisterResponse"></p>
-
+      <a href="testfunction.html">Test TestFunction</a>
+      <p id="api-register-response"></p>
+    </main>
     <script>
-      const formElement = document.getElementById("registrationForm");
+      const apiUrl = "api/";
+      const formElement = document.getElementById("registration-form");
       formElement.addEventListener("submit", function (event) {
         event.preventDefault;
         const data = Object.fromEntries(new FormData(formElement));
 
-        fetch("/api/RegisterVisitor", {
+        fetch(apiUrl + "RegisterVisitor", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -32,7 +39,7 @@
         })
           .then((res) => res.json())
           .then((resData) => {
-            document.getElementById("apiMessage").textContent = resData;
+            document.getElementById("api-register-response").textContent = resData;
           })
           .catch(console.error);
       });
