@@ -27,7 +27,7 @@
       const apiUrl = "api/";
       const formElement = document.getElementById("registration-form");
       formElement.addEventListener("submit", function (event) {
-        event.preventDefault;
+        event.preventDefault();
         const data = Object.fromEntries(new FormData(formElement));
 
         fetch(apiUrl + "RegisterVisitor", {
